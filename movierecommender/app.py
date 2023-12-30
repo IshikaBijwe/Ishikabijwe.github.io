@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
-
+import webbrowser
 
 
 def recommend(movie):
@@ -19,14 +19,16 @@ def recommend(movie):
 movies_dict=pickle.load(open('movie_dict.pkl','rb'))
 movies=pd.DataFrame(movies_dict)
 
-similarity=pickle.load(open('similarity.pkl','rb'))
+#similarity=pickle.load(open('similarity.pkl','rb'))
 
-st.title('Movie Recommender System')
+#similarity=pickle.load(webbrowser.open('https://rb.gy/p806c7'))
+
+#url = 'https://rb.gy/p806c7'
+#url = `https://drive.google.com/file/d/1J7WZhH8JX7pbVv4ZnlekxMo6yoDD1Wqr/view?usp=sharingst.title('Movie Recommender System')`
 
 selected_movie_name = st.selectbox(
 'How would you like to be contacted?',
 movies['title'].values)
-
 if st.button('Recommend'):
     recommendations=recommend(selected_movie_name)
     for i in recommendations:
