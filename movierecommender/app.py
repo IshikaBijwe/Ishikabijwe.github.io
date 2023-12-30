@@ -16,7 +16,7 @@ def recommend(movie):
         recommend_movies.append(movies.iloc[i[0]].title)
     return recommend_movies
 
-movies_dict=pickle.load(open('movie_dict.pkl','rb'))
+movies_dict=pickle.load(open('movierecommender/movie_dict.pkl','rb'))
 movies=pd.DataFrame(movies_dict)
 
 #similarity=pickle.load(open('similarity.pkl','rb'))
